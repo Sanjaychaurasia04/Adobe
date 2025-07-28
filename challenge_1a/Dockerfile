@@ -1,8 +1,8 @@
 # Use official Python image
-FROM --platform=linux/amd64 python:3.9-slim
+FROM --platform=linux/amd64 python:3.9-slim-bullseye
 
-# Install system dependencies (required for PyMuPDF)
-RUN apt-get update && apt-get install -y \
+# Install system dependencies (required for PyMuPDF) and upgrade packages
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     libgl1 \
     && rm -rf /var/lib/apt/lists/*
 
